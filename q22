@@ -1,0 +1,28 @@
+class Solution {
+public:
+
+    void insert(vector<int>& nums,int n){
+        int key = nums[n-1];
+        int j = n-2;
+
+        while(j>=0 && nums[j]>key){
+            nums[j+1] = nums[j];
+            j--;
+        }
+        nums[j+1] = key; 
+    }
+
+    void sortrec(vector<int>& nums, int n){
+        if (n<=1) return;
+
+        sortrec(nums,n-1);
+
+        insert(nums,n);
+        
+    }
+    vector<int> insertionSort(vector<int>& nums) {
+        int n = nums.size();
+        sortrec(nums, n);
+        return nums;
+    }
+};
