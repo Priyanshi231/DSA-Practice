@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int largestElement(vector<int>& nums) {
+        int large = 0;
+        for(int i=0; i<nums.size(); i++){
+            large = max(nums[i],large);
+        }
+        return large;
+    }
+};
