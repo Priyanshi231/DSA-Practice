@@ -1,0 +1,16 @@
+class Solution{
+public:
+    int stockBuySell(vector<int> prices, int n){
+        int b = prices[0];
+        int mp = 0;
+
+        for(int i=1; i<n; i++){
+            if(prices[i] > b){
+                mp = max(mp, prices[i]-b);
+            }
+            b = min(prices[i],b);
+        }
+        return mp;
+    }
+};
+
