@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int floorSqrt(int n)  {
+       long long s = 1, e = n;
+        if(n==0 || n==1) return n;
+         long long ans = 0;
+
+       while(s<=e){
+         long long  m = s+(e-s)/2;
+         long long  sq = m*m;
+    
+         if(sq == n){
+            return m;
+         }
+         if(sq < n){
+            ans = m;
+            s = m+1;
+         }
+         else{
+            e = m-1;
+         }
+       }
+    return ans;
+    }
+};
