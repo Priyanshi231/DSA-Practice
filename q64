@@ -1,0 +1,21 @@
+class Solution {
+public:
+  int NthRoot(int N, int M) {
+      long long s = 0, e = M;
+
+      while(s<=e){
+        long long mid = s+(e-s)/2;
+        long long p = pow(mid,N);
+
+        if(p == M) return mid;
+
+        if(p < M){
+          s = mid+1;
+        }
+        else{
+          e = mid - 1;
+        }
+      }
+      return -1;
+  }
+};
