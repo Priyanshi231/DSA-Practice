@@ -1,0 +1,35 @@
+class Solution {
+  public:   
+  int rowWithMax1s(vector < vector < int >> & mat) {
+      int n = mat.size();
+      int m = mat[0].size();
+      int ans = -1;
+      int maxones = 0;
+
+      for(int i = 0; i<n; i++){
+        int s = 0, e = m-1;
+        int firstone = -1;
+
+        while(s<=e){
+          int mid = s+(e-s)/2;
+
+          if(mat[i][mid] == 1){
+            firstone = mid;
+            e = mid-1;
+          }else{
+            s = mid+1;
+          }
+        }
+
+        if(firstone != -1){
+          int ones  = m - firstone;
+          if(ones > maxones){
+            maxones = ones;
+            ans = i;
+          }
+        }
+
+      }
+      return ans;
+  }
+};
