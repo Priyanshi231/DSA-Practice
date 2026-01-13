@@ -1,0 +1,24 @@
+class Solution{	
+public:		
+    string largeOddNum(string& s){
+        //your code goes here
+        int n = s.size();
+
+        string ans;
+        int i = n-1;
+
+        while(i>=0){
+            if((s[i] - '0') %2 != 0 && s[0] != 0){
+                ans = s.substr(0,i+1);
+
+                int st = 0;
+                while(st < n && ans[st] == '0'){
+                    st++;
+                }
+                return ans.substr(st);
+            }
+            i--;
+        }
+        return "";
+    }
+};
